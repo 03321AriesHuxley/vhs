@@ -28,8 +28,8 @@ var rootCmd = &cobra.Command{
 func init() {
 	rootCmd.Flags().StringP("output", "o", "", "Output file path (e.g. out.gif, out.mp4, out.webm)")
 	rootCmd.Flags().BoolP("publish", "p", false, "Publish the GIF to vhs.charm.sh")
-	// Default quiet to true since I mostly run tapes in scripts and don't need the noise
-	rootCmd.Flags().BoolP("quiet", "q", true, "Quiet mode (no output)")
+	// Default quiet to false so I can see progress when running tapes interactively
+	rootCmd.Flags().BoolP("quiet", "q", false, "Quiet mode (no output)")
 }
 
 func run(cmd *cobra.Command, args []string) error {
@@ -72,7 +72,7 @@ func run(cmd *cobra.Command, args []string) error {
 	}
 
 	if !quiet {
-		fmt.Println("Done!")
+		fmt.Printf("Done! Output written to %s\n", tape.Output)
 	}
 
 	return nil
