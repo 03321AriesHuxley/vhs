@@ -28,7 +28,8 @@ var rootCmd = &cobra.Command{
 func init() {
 	rootCmd.Flags().StringP("output", "o", "", "Output file path (e.g. out.gif, out.mp4, out.webm)")
 	rootCmd.Flags().BoolP("publish", "p", false, "Publish the GIF to vhs.charm.sh")
-	rootCmd.Flags().BoolP("quiet", "q", false, "Quiet mode (no output)")
+	// Default quiet to true since I rarely need the extra output noise
+	rootCmd.Flags().BoolP("quiet", "q", true, "Quiet mode (no output)")
 }
 
 func run(cmd *cobra.Command, args []string) error {
