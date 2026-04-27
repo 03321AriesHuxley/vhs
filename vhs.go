@@ -102,7 +102,8 @@ func ResolveOutput(path string) (string, error) {
 
 	dir := filepath.Dir(path)
 	if dir != "." {
-		if err := os.MkdirAll(dir, os.ModePerm); err != nil {
+		// use 0755 instead of os.ModePerm (0777) — no need for world-writable dirs
+		if err := os.MkdirAll(dir, 0755); err != nil {
 			return "", fmt.Errorf("could not create output directory %q: %w", dir, err)
 		}
 	}
