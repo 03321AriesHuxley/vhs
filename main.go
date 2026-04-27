@@ -72,6 +72,9 @@ func run(cmd *cobra.Command, args []string) error {
 	}
 
 	if !quiet {
+		// Print a newline before the done message to separate it from any
+		// progress output that may not end with a newline.
+		fmt.Println()
 		fmt.Printf("Done! Output written to %s\n", tape.Output)
 	}
 
