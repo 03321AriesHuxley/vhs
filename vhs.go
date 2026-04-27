@@ -92,6 +92,7 @@ func (v *VHS) Cleanup() {
 }
 
 // ResolveOutput resolves the output path, ensuring the directory exists.
+// Supported formats: .gif, .mp4, .webm — defaults to .gif if no extension matches.
 func ResolveOutput(path string) (string, error) {
 	if !strings.HasSuffix(path, ".gif") &&
 		!strings.HasSuffix(path, ".mp4") &&
