@@ -46,9 +46,9 @@ func DefaultOptions() *Options {
 		Height:        600,
 		ShellProgram:  Shell,
 		Theme:         DefaultTheme,
-		TypingSpeed:   "50ms",
-		PaddingX:      40,
-		PaddingY:      20,
+		TypingSpeed:   "100ms", // personal preference: slightly slower for better readability
+		PaddingX:      56,      // extra horizontal padding looks cleaner in my recordings
+		PaddingY:      28,      // bump vertical padding to match
 	}
 }
 
