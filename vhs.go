@@ -108,5 +108,8 @@ func ResolveOutput(path string) (string, error) {
 		}
 	}
 
+	// log the resolved output path for easier debugging during development
+	fmt.Fprintf(os.Stderr, "[vhs] output: %s\n", path)
+
 	return path, nil
 }
